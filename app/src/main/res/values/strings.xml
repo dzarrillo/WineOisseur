@@ -37,7 +37,7 @@
     <!-- Snooth api -->
     <string name="base_url">http://api.snooth.com/</string>
     <string name="wine_store_locations">Wine Store locations</string>
-    <string name="wine_api_key">bx3xdtzgga2njd1xne4ch8ayhhrix7oyvr32578n1c5ajsjk</string>
+    <string name="wine_api_key">your snooth.com api key</string>
 
     <!-- Red Varietal wines -->
     <string-array name="red_varietal">
@@ -71,8 +71,8 @@
     <string name="liquor_store">liquor_store</string>
 
     <!-- google_places_key cannot be restricted in console -->
-    <string name="google_places_key">AIzaSyA0w33T5coxeqgZnX4L71RtJSPXequLl4g</string>
-    <string name="google_maps_key">AIzaSyB1JAky66hCTpv1VYjSGPZX-lGzWgSJTCI</string>
+    <string name="google_places_key">Your google places api key</string>
+    <string name="google_maps_key">Your google maps api key</string>
     <string name="title_activity_maps">Map</string>
     <string name="driving_directions">Driving directions</string>
     <string name="walking_directions">Walking directions</string>
