@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/relativeLayoutMoreRegions"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RadioGroup
+        android:id="@+id/radioGroupMoreRegions"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <RadioButton
+            android:id="@+id/radioButtonArgentina"
+            style="@style/RadioRegionDlg"
+            android:contentDescription="@string/select_argentina"
+            android:text="@string/argentina" />
+
+        <RadioButton
+            android:id="@+id/radioButtonAustralia"
+            style="@style/RadioRegionDlg"
+            android:contentDescription="@string/select_australia"
+            android:text="@string/australia" />
+
+        <RadioButton
+            android:id="@+id/radioButtonAustria"
+            style="@style/RadioRegionDlg"
+            android:contentDescription="@string/select_austria"
+            android:text="@string/austria" />
+
+        <RadioButton
+            android:id="@+id/radioButtonBelgium"
+            style="@style/RadioRegionDlg"
+            android:contentDescription="@string/select_belgium"
+            android:text="@string/belgium" />
+
+        <RadioButton
+            android:id="@+id/radioButtonCanada"
+            style="@style/RadioRegionDlg"
+            android:contentDescription="@string/select_canada"
+            android:text="@string/canada" />
+
+        <RadioButton
+            android:id="@+id/radioButtonGermany"
+            style="@style/RadioRegionDlg"
+            android:contentDescription="@string/select_germany"
+            android:text="@string/germany" />
+
+        <RadioButton
+            android:id="@+id/radioButtonNewZealand"
+            style="@style/RadioRegionDlg"
+            android:contentDescription="@string/select_new_zealand"
+            android:text="@string/new_zealand" />
+
+        <RadioButton
+            android:id="@+id/radioButtonPortugal"
+            style="@style/RadioRegionDlg"
+            android:contentDescription="@string/select_portugal"
+            android:text="@string/portugal" />
+
+        <RadioButton
+            android:id="@+id/radioButtonSpain"
+            style="@style/RadioRegionDlg"
+            android:contentDescription="@string/select_spain"
+            android:text="@string/spain" />
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/buttonOk"
+        android:layout_below="@+id/radioGroupMoreRegions"
+        android:layout_alignLeft="@+id/radioGroupMoreRegions"
+        android:layout_alignStart="@+id/radioGroupMoreRegions"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/margin_fifteen_dp"
+        android:layout_marginTop="@dimen/margin_fifteen_dp"
+        android:text="@string/ok"/>
+
+    <Button
+        android:id="@+id/buttonCancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/buttonOk"
+        android:layout_toEndOf="@+id/buttonOk"
+        android:layout_toRightOf="@+id/buttonOk"
+        android:text="@string/cancel" />
+
+</RelativeLayout>

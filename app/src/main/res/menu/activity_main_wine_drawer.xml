@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_wineSearch"
+            android:icon="@drawable/ic_glass_tulip_black_24dp"
+            android:contentDescription="@string/navigate_to_wine_search"
+            android:title="@string/winesearch" />
+        <item
+            android:id="@+id/nav_dessert"
+            android:icon="@drawable/ic_local_bar_black_24dp"
+            android:contentDescription="@string/navigate_to_dessert_wines"
+            android:title="@string/dessert" />
+        <item
+            android:id="@+id/nav_favorites"
+            android:icon="@drawable/ic_favorite_black_24dp"
+            android:contentDescription="@string/navigate_to_favorite_wines"
+            android:title="@string/favorites" />
+        <item
+            android:id="@+id/nav_winestores"
+            android:icon="@drawable/ic_location_city_black_24dp"
+            android:contentDescription="@string/navigate_to_wine_store_locations"
+            android:title="@string/wine_store_locations"/>
+
+        <item
+            android:id="@+id/nav_settings"
+            android:icon="@drawable/settings"
+            android:contentDescription="@string/navigate_to_user_settings"
+            android:title="@string/settings" />
+    </group>
+
+</menu>

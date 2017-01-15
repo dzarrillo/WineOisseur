@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "669098915371",
+    "firebase_url": "https://wineoisseur-1317b.firebaseio.com",
+    "project_id": "wineoisseur-1317b",
+    "storage_bucket": "wineoisseur-1317b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:669098915371:android:e69615cbefb2940a",
+        "android_client_info": {
+          "package_name": "com.dzartek.wineoisseur"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "669098915371-viu16j25400q6u71o352rsc4b32hvtrg.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.dzartek.wineoisseur",
+            "certificate_hash": "EA8BC90FF4636A4F8A07C8CACDDDD2CC932A6EA9"
+          }
+        },
+        {
+          "client_id": "669098915371-o631drjm9tmra3asirh23baklq1ros9u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAEQQR5ehkYzGDo9zHr7j7Gi5dSsH8PNLs"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "669098915371-o631drjm9tmra3asirh23baklq1ros9u.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

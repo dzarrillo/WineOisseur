@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/relativeLayoutCustomRowWineResults"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/cardviewResult"
+        style="@style/CardViewStyle"
+        android:contentDescription="@string/click_here_to_go_to_winery_website"
+        android:layout_margin="@dimen/margin_ten_dp" >
+
+        <RelativeLayout
+            android:id="@+id/relativeLayoutCardViewWineResults"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/padding_ten_dp">
+
+            <ImageView
+                android:id="@+id/imageViewBottle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/ic_menu_camera"
+                android:padding="@dimen/padding_two_dp"
+                android:contentDescription="@string/pic"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
+
+            <TextView
+                android:id="@+id/textViewRating"
+                android:text="@string/rating"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/padding_two_dp"
+                android:layout_marginRight="@dimen/margin_five_dp"
+                android:layout_marginEnd="@dimen/margin_five_dp"
+                android:layout_toRightOf="@+id/imageViewBottle"
+                android:layout_toEndOf="@+id/imageViewBottle"
+                android:layout_alignParentTop="true"/>
+
+            <RatingBar
+                android:id="@+id/ratingBarWine"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/padding_two_dp"
+                android:layout_marginRight="@dimen/margin_five_dp"
+                android:layout_marginEnd="@dimen/margin_five_dp"
+                android:layout_toRightOf="@+id/textViewRating"
+                android:layout_toEndOf="@+id/textViewRating"
+                android:layout_alignParentTop="true"
+                android:isIndicator="true"
+                android:numStars="5"
+                android:rating="5"
+                android:stepSize="0"
+                style="?android:attr/ratingBarStyleSmall"/>
+
+            <ImageButton
+                android:id="@+id/imageButtonFavorite"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/margin_five_dp"
+                android:layout_marginEnd="@dimen/margin_five_dp"
+                android:padding="@dimen/padding_two_dp"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:background="@android:color/transparent"
+                android:clickable="true"
+                android:contentDescription="@string/add_remove_favorites_database"
+                android:src="@drawable/ic_favorite_border_black_24dp"/>
+
+
+            <TextView
+                android:id="@+id/textViewName"
+                android:text="@string/bottle_name"
+                style="@style/CustomTextViewStyle"
+                android:layout_below="@+id/ratingBarWine"
+                android:layout_toRightOf="@+id/imageViewBottle"
+                android:layout_toEndOf="@+id/imageViewBottle"
+                />
+
+
+            <TextView
+                android:id="@+id/labelPrice"
+                android:text="@string/price"
+                style="@style/CustomTextViewStyle"
+                android:layout_below="@+id/textViewName"
+                android:layout_toRightOf="@+id/imageViewBottle"
+                android:layout_toEndOf="@+id/imageViewBottle"/>
+
+            <TextView
+                android:id="@+id/textViewPrice"
+                android:text="@string/ten_dollars"
+                style="@style/CustomTextViewStyle"
+                android:layout_below="@+id/textViewName"
+                android:layout_toRightOf="@+id/labelPrice"
+                android:layout_toEndOf="@+id/labelPrice"/>
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+</LinearLayout>

@@ -1,0 +1,196 @@
+package com.dzartek.wineoisseur;
+
+import android.app.ProgressDialog;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.graphics.Color;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.FragmentActivity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageButton;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.dzartek.wineoisseur.datamodel.CurrentLoc;
+import com.dzartek.wineoisseur.maplocation.DirectionFinder;
+import com.dzartek.wineoisseur.maplocation.DirectionFinderListener;
+import com.dzartek.wineoisseur.maplocation.Route;
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
+import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.maps.model.Polyline;
+import com.google.android.gms.maps.model.PolylineOptions;
+
+import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
+import java.util.List;
+
+
+public class MapsActivity extends FragmentActivity implements OnMapReadyCallback, DirectionFinderListener, View.OnClickListener {
+
+    private GoogleMap mMap;
+    private List<Marker> originMarkers = new ArrayList<>();
+    private List<Marker> destinationMarkers = new ArrayList<>();
+    private List<Polyline> polylinePaths = new ArrayList<>();
+    private ProgressDialog progressDialog;
+    private String mOrigin, mDestination, mMode;
+    private double mOriginLong, mOriginLat;
+    private ImageButton buttonDriving, buttonWalking;
+    private TextView textViewMode;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_maps);
+
+        initializeWidgets();
+
+        mOriginLong = 40.379651;
+        mOriginLat = -74.131428;
+
+        Intent intent = getIntent();
+        mOrigin = CurrentLoc.origin;
+        mDestination = intent.getStringExtra("DESTIN");
+        mMode = intent.getStringExtra("MODE");
+
+        // Obtain the SupportMapFragment and get notified when the map is ready to be used.
+        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
+                .findFragmentById(R.id.map);
+        mapFragment.getMapAsync(this);
+
+
+
+        sendRequest();
+
+    }
+
+    private void initializeWidgets() {
+        buttonDriving = (ImageButton) findViewById(R.id.buttonDriving);
+        buttonWalking = (ImageButton) findViewById(R.id.buttonWalking);
+        textViewMode = (TextView) findViewById(R.id.textViewMode);
+
+        buttonDriving.setOnClickListener(this);
+        buttonWalking.setOnClickListener(this);
+    }
+
+    private void sendRequest() {
+
+        if (mOrigin.isEmpty()) {
+            Toast.makeText(this, "Please enter origin address!", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if (mDestination.isEmpty()) {
+            Toast.makeText(this, "Please enter destination address!", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        try {
+            new DirectionFinder(this, mOrigin, mDestination, mMode).execute();
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void onMapReady(GoogleMap googleMap) {
+        mMap = googleMap;
+        LatLng hcmus = new LatLng(mOriginLong, mOriginLat);
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(hcmus, 18));
+        originMarkers.add(mMap.addMarker(new MarkerOptions()
+                .title("Current Location")
+                .position(hcmus)));
+
+
+        if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            //    ActivityCompat#requestPermissions
+            // here to request the missing permissions, and then overriding
+            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+            //                                          int[] grantResults)
+            // to handle the case where the user grants the permission. See the documentation
+            // for ActivityCompat#requestPermissions for more details.
+            return;
+        }
+        mMap.setMyLocationEnabled(true);
+    }
+
+
+    @Override
+    public void onDirectionFinderStart() {
+        progressDialog = ProgressDialog.show(this, "Please wait.",
+                "Finding direction..!", true);
+
+        if (originMarkers != null) {
+            for (Marker marker : originMarkers) {
+                marker.remove();
+            }
+        }
+
+        if (destinationMarkers != null) {
+            for (Marker marker : destinationMarkers) {
+                marker.remove();
+            }
+        }
+
+        if (polylinePaths != null) {
+            for (Polyline polyline:polylinePaths ) {
+                polyline.remove();
+            }
+        }
+    }
+
+    @Override
+    public void onDirectionFinderSuccess(List<Route> routes) {
+        progressDialog.dismiss();
+        polylinePaths = new ArrayList<>();
+        originMarkers = new ArrayList<>();
+        destinationMarkers = new ArrayList<>();
+
+        for (Route route : routes) {
+            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(route.startLocation, 16));
+            ((TextView) findViewById(R.id.tvDuration)).setText(route.duration.text);
+            ((TextView) findViewById(R.id.tvDistance)).setText(route.distance.text);
+
+            originMarkers.add(mMap.addMarker(new MarkerOptions()
+                    .icon(BitmapDescriptorFactory.fromResource(R.drawable.start_blue))
+                    .title(route.startAddress)
+                    .position(route.startLocation)));
+            destinationMarkers.add(mMap.addMarker(new MarkerOptions()
+                    .icon(BitmapDescriptorFactory.fromResource(R.drawable.end_green))
+                    .title(route.endAddress)
+                    .position(route.endLocation)));
+
+            PolylineOptions polylineOptions = new PolylineOptions().
+                    geodesic(true).
+                    color(Color.BLUE).
+                    width(10);
+
+            for (int i = 0; i < route.points.size(); i++)
+                polylineOptions.add(route.points.get(i));
+
+            polylinePaths.add(mMap.addPolyline(polylineOptions));
+        }
+    }
+
+    @Override
+    public void onClick(View view) {
+        String dirtype=getResources().getString(R.string.walking_directions);
+        switch (view.getId()){
+            case R.id.buttonDriving:
+                mMode = "driving";
+                dirtype = getResources().getString(R.string.driving_directions);
+                break;
+            case R.id.buttonWalking:
+                mMode = "walking";
+                dirtype = getResources().getString(R.string.walking_directions);
+                break;
+        }
+        sendRequest();
+        textViewMode.setText(dirtype);
+    }
+}

@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/scrollViewSettings"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    >
+<RelativeLayout
+    android:id="@+id/relativelayoutSettings"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:id="@+id/textViewSortBy"
+        android:text="@string/sort_by"
+        style="@style/SettingsTextView"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="@dimen/margin_twenty_dp"
+        android:layout_marginStart="@dimen/margin_twenty_dp"
+        android:layout_marginTop="@dimen/margin_twentyfour_dp" />
+
+    <RadioGroup
+        android:id="@+id/radioGroupSortBy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textViewSortBy"
+        android:layout_marginLeft="@dimen/margin_forty_dp"
+        android:layout_marginStart="@dimen/margin_forty_dp"
+        android:layout_marginTop="@dimen/margin_ten_dp">
+        <RadioButton
+            android:id="@+id/radioButtonPriceAsc"
+            android:text="@string/price_asc"
+            android:contentDescription="@string/sort_by_price_ascending"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <RadioButton
+            android:id="@+id/radioButtonPriceDesc"
+            android:text="@string/price_desc"
+            android:contentDescription="@string/sort_by_price_descending"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <RadioButton
+            android:id="@+id/radioButtonRanking"
+            android:text="@string/snooth_ranking"
+            android:contentDescription="@string/sort_by_snooth_ranking"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/textViewReturnResults"
+        android:text="@string/return_results"
+        style="@style/SettingsTextView"
+        android:layout_below="@+id/radioGroupSortBy"
+        android:layout_alignLeft="@+id/textViewSortBy"
+        android:layout_alignStart="@+id/textViewSortBy"
+        android:layout_marginTop="@dimen/margin_twentyfour_dp" />
+
+    <RadioGroup
+        android:id="@+id/radioGroupReturnResults"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textViewReturnResults"
+        android:layout_marginLeft="@dimen/margin_forty_dp"
+        android:layout_marginStart="@dimen/margin_forty_dp"
+        android:layout_marginTop="@dimen/margin_ten_dp">
+        <RadioButton
+            android:id="@+id/radioButtonReturnFifty"
+            android:text="@string/return_fifty_results"
+            android:contentDescription="@string/return_a_max_of_50_results"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <RadioButton
+            android:id="@+id/radioButtonReturnSeventyFive"
+            android:text="@string/return_seventyfive_results"
+            android:contentDescription="@string/return_a_max_of_75_results"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <RadioButton
+            android:id="@+id/radioButtonReturn100"
+            android:text="@string/return_100_results"
+            android:contentDescription="@string/return_a_max_of_100_results"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/textViewAvailableWines"
+        android:text="@string/available_wines"
+        style="@style/SettingsTextView"
+        android:layout_marginTop="@dimen/margin_twentyfour_dp"
+        android:layout_below="@+id/radioGroupReturnResults"
+        android:layout_alignLeft="@+id/textViewReturnResults"
+        android:layout_alignStart="@+id/textViewReturnResults" />
+
+    <RadioGroup
+        android:id="@+id/radioGroupAvailableWines"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textViewAvailableWines"
+        android:layout_marginLeft="@dimen/margin_forty_dp"
+        android:layout_marginStart="@dimen/margin_forty_dp"
+        android:layout_marginTop="@dimen/margin_ten_dp">
+        <RadioButton
+            android:id="@+id/radioButtonSearchSnooth"
+            android:text="@string/search_snooth_inventory"
+            android:contentDescription="@string/search_wines_only_in_snooth_inventory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <RadioButton
+            android:id="@+id/radioButtonSearchAllWines"
+            android:text="@string/search_all"
+            android:contentDescription="@string/search_for_wine_in_all_inventories"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </RadioGroup>
+
+
+</RelativeLayout>
+
+</android.support.v4.widget.NestedScrollView>

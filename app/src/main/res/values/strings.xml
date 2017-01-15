@@ -1,0 +1,175 @@
+<resources>
+    <string name="app_name">WineOisseur</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="winesearch">Wine Search</string>
+    <string name="red">Red</string>
+    <string name="white">White</string>
+    <string name="dessert">Dessert</string>
+    <string name="favorites">Favorites</string>
+    <string name="settings">Settings</string>
+    <string name="region">Region</string>
+    <string name="rating">Rating</string>
+    <string name="show_more"><![CDATA[Show more ->]]></string>
+    <string name="all">All</string>
+    <string name="varietal">Varietal</string>
+    <string name="price_range">Price Range</string>
+    <string name="priceRange_0_To_10">$0 - $10</string>
+    <string name="priceRange_10_To_20">$10 - $20</string>
+    <string name="priceRange_20_To_30">$20 - $30</string>
+    <string name="priceRange_30_To_40">$30 - $40</string>
+    <string name="priceRange_40_To_50">$40 - $50</string>
+    <string name="priceRange_50_Plus">$50 +</string>
+    <string name="pic">Pic</string>
+    <string name="price">Price</string>
+    <string name="bottle_name">Bottle name</string>
+    <string name="ten_dollars">$10.00</string>
+    <string name="twostars">* *</string>
+    <string name="five">5</string>
+    <string name="search_for_wines">Search for wines</string>
+    <string name="add_remove_favorites_database">Add or remove from Favorites database!</string>
+    <string name="tap_for_map">Tap to see map</string>
+    <string name="click_here_to_go_to_winery_website">Tap to go to Winery website!</string>
+
+    <!-- Snooth api -->
+    <string name="base_url">http://api.snooth.com/</string>
+    <string name="wine_store_locations">Wine Store locations</string>
+    <string name="wine_api_key">bx3xdtzgga2njd1xne4ch8ayhhrix7oyvr32578n1c5ajsjk</string>
+
+    <!-- Red Varietal wines -->
+    <string-array name="red_varietal">
+        <item>Cabernet Sauvignon</item>
+        <item>Merlot</item>
+        <item>Zinfandel</item>
+        <item>Malbec</item>
+        <item>Pinot Noir</item>
+        <item>Cabernet Franc</item>
+        <item>Bordeaux</item>
+        <item>Burgundy</item>
+        <item>Syrah</item>
+        <item>Chianti</item>
+        <item>Sangiovese</item>
+    </string-array>
+
+    <!-- white Varietal wines -->
+    <string-array name="white_varietal">
+        <item>Chardonnay</item>
+        <item>Sauvignon Blanc</item>
+        <item>Pinot Grigio</item>
+        <item>Reisling</item>
+        <item>Gewurztraminer</item>
+        <item>Champagne</item>
+        <item>Pinot Gris</item>
+        <item>Chenin Blanc</item>
+    </string-array>
+
+    <!--  Google places query parameters -->
+    <string name="radius">5000</string>
+    <string name="liquor_store">liquor_store</string>
+
+    <!-- google_places_key cannot be restricted in console -->
+    <string name="google_places_key">AIzaSyA0w33T5coxeqgZnX4L71RtJSPXequLl4g</string>
+    <string name="google_maps_key">AIzaSyB1JAky66hCTpv1VYjSGPZX-lGzWgSJTCI</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="driving_directions">Driving directions</string>
+    <string name="walking_directions">Walking directions</string>
+
+    <!-- App Widget -->
+    <string name="appwidget_text">Favorite Wines</string>
+    <string name="add_widget">Add widget</string>
+
+    <!--  Wine search  -->
+    <string name="wine_sortby">price+asc</string>
+    <string name="all_wines">0</string>
+    <string name="fivestars">* * * * *</string>
+    <string name="fourstars">* * * *</string>
+    <string name="threestars">* * *</string>
+    <string name="search">Search</string>
+    <string name="usa">USA</string>
+    <string name="france">France</string>
+    <string name="italy">Italy</string>
+    <string name="argentina">Argentina</string>
+    <string name="australia">Australia</string>
+    <string name="austria">Austria</string>
+    <string name="belgium">Belgium</string>
+    <string name="canada">Canada</string>
+    <string name="germany">Germany</string>
+    <string name="new_zealand">New Zealand</string>
+    <string name="portugal">Portugal</string>
+    <string name="spain">Spain</string>
+    <string name="ok">Ok</string>
+    <string name="cancel">Cancel</string>
+    <string name="www_snooth_com">www.snooth.com</string>
+
+    <!-- User Settings -->
+    <string name="preference_filename">com.dzartek.wineoisseur.UserSettings</string>
+    <string name="sort_by">Sort by</string>
+    <string name="sortby_price_asc">price+asc</string>
+    <string name="sortby_price_desc">price+desc</string>
+    <string name="sortby_snooth_rank">sr</string>
+
+    <string name="return_results">Return results</string>
+    <string name="return_fifty_results">50</string>
+    <string name="return_seventyfive_results">75</string>
+    <string name="return_100_results">100</string>
+
+    <string name="search_wines">Search wines</string>
+    <string name="search_in_snooth">1</string>
+    <string name="search_in_all">0</string>
+
+    <!-- Content description -->
+    <string name="price_asc">Price Asc</string>
+    <string name="price_desc">Price Desc</string>
+    <string name="snooth_ranking">Snooth Ranking</string>
+    <string name="available_wines">Available wines</string>
+    <string name="search_snooth_inventory">Search Snooth inventory</string>
+    <string name="search_all">Search all</string>
+    <string name="select_usa">Select USA to search wines!</string>
+    <string name="select_france">Select France to search wines!</string>
+    <string name="select_italy">Select Italy to search wines!</string>
+    <string name="show_more_regions">Show more regions!</string>
+    <string name="select_argentina">Select Argentina to search wines!</string>
+    <string name="select_australia">Select Australia to search wines!</string>
+    <string name="select_austria">Select Austria to search wines!</string>
+    <string name="select_belgium">Select Belgium to search wines!</string>
+    <string name="select_canada">Select Canada to search wines!</string>
+    <string name="select_germany">Select Germany to search wines!</string>
+    <string name="select_new_zealand">Select New Zealand to search wines!</string>
+    <string name="select_portugal">Select Portugal to search wines!</string>
+    <string name="select_spain">Select Spain to search wines!</string>
+    <string name="select_five_star">Select five star wine rating!</string>
+    <string name="select_four_star">Select four star wine rating!</string>
+    <string name="select_three_star">Select three star wine rating!</string>
+    <string name="select_two_star">Select two star wine rating!</string>
+    <string name="select_red_wine">Select red wine!</string>
+    <string name="select_white_wine">Select white wine!</string>
+    <string name="select_wine_varietal">Select wine varietal!</string>
+    <string name="select_price_range_between_0_to_10_dollars">Select price range between 0 to 10 dollars!</string>
+    <string name="select_price_range_between_20_to_30_dollars">select price range between 20 to 30 dollars!</string>
+    <string name="select_price_range_between_40_to_50_dollars">Select Price range between 40 to 50 dollars!</string>
+    <string name="select_price_range_between_10_to_20_dollars">Select price range between 10 to 20 dollars!</string>
+    <string name="select_price_range_between_30_to_40_dollars">Select price range between 30 to 40 dollars!</string>
+    <string name="select_price_range_of_50_plus_dollars">Select price range of 50 plus dollars!</string>
+    <string name="navigate_to_wine_search">Navigate to wine search!</string>
+    <string name="navigate_to_dessert_wines">Navigate to dessert wines!</string>
+    <string name="navigate_to_favorite_wines">Navigate to favorite wines!</string>
+    <string name="navigate_to_wine_store_locations">Navigate to wine store locations!</string>
+    <string name="navigate_to_user_settings">Navigate to user settings!</string>
+    <string name="sort_by_price_ascending">Sort by price ascending!</string>
+    <string name="sort_by_price_descending">Sort by price descending!</string>
+    <string name="sort_by_snooth_ranking">Sort by snooth ranking!</string>
+    <string name="return_a_max_of_50_results">Return a max of 50 results!</string>
+    <string name="return_a_max_of_75_results">Return a max of 75 results!</string>
+    <string name="return_a_max_of_100_results">Return a max of 100 results!</string>
+    <string name="search_wines_only_in_snooth_inventory">Search wines only in Snooth inventory!</string>
+    <string name="search_for_wine_in_all_inventories">Search for wine in all inventories!</string>
+    <string name="image_of_winery">Image of winery</string>
+    <string name="distance">Distance</string>
+    <string name="image_of_clock">Image of Clock</string>
+    <string name="wine_search">Wine Search</string>
+    <string name="results">Wine Search results</string>
+
+</resources>

@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/scrollViewWineSearch"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:fillViewport="true"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+    <RelativeLayout
+        android:id="@+id/relativeLayoutWineSearch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="10dp"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <TextView
+            android:id="@+id/TextViewRegion"
+            style="@style/TextViewTitle"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="@dimen/margin_thirteight_dp"
+            android:layout_marginStart="@dimen/margin_thirteight_dp"
+            android:layout_marginTop="24dp"
+            android:text="@string/region" />
+
+        <TextView
+            android:id="@+id/textViewRating"
+            style="@style/TextViewTitle"
+            android:layout_alignBottom="@+id/TextViewRegion"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginEnd="76dp"
+            android:layout_marginRight="76dp"
+            android:text="@string/rating" />
+
+        <RadioGroup
+            android:id="@+id/radioGroupRegion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/TextViewRegion"
+            android:layout_marginLeft="@dimen/margin_eighteen_dp"
+            android:layout_marginStart="@dimen/margin_eighteen_dp"
+            android:layout_marginTop="12dp">
+
+            <RadioButton
+                android:id="@+id/radioButtonUSA"
+                android:layout_width="@dimen/radio_button_width"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/select_usa"
+                android:text="@string/usa" />
+
+            <RadioButton
+                android:id="@+id/radioButtonFrance"
+                android:layout_width="@dimen/radio_button_width"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/select_france"
+                android:text="@string/france" />
+
+            <RadioButton
+                android:id="@+id/radioButtonItaly"
+                android:layout_width="@dimen/radio_button_width"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/select_italy"
+                android:text="@string/italy" />
+
+            <RadioButton
+                android:id="@+id/radioButtonShowMore"
+                android:layout_width="@dimen/radio_button_width"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/show_more_regions"
+                android:text="@string/show_more" />
+        </RadioGroup>
+
+
+        <RadioGroup
+            android:id="@+id/radioGroupRating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/radioGroupRegion"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginEnd="31dp"
+            android:layout_marginRight="31dp">
+
+
+            <RadioButton
+                android:id="@+id/radioButtonFive"
+                android:layout_width="122dp"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/select_five_star"
+                android:text="@string/fivestars" />
+
+            <RadioButton
+                android:id="@+id/radioButtonFour"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/select_four_star"
+                android:text="@string/fourstars" />
+
+            <RadioButton
+                android:id="@+id/radioButtonThree"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/select_three_star"
+                android:text="@string/threestars" />
+
+            <RadioButton
+                android:id="@+id/radioButtonTwo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/select_two_star"
+                android:text="@string/twostars" />
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/textViewVarietal"
+            style="@style/TextViewTitle"
+            android:layout_below="@+id/radioGroupRating"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:text="@string/varietal" />
+
+        <RadioGroup
+            android:id="@+id/radioGroupVarietal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textViewVarietal"
+            android:layout_centerHorizontal="true"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/radioButtonRed"
+                style="@style/RadioVarietal"
+                android:contentDescription="@string/select_red_wine"
+                android:text="@string/red" />
+
+            <RadioButton
+                android:id="@+id/radioButtonWhite"
+                style="@style/RadioVarietal"
+                android:contentDescription="@string/select_white_wine"
+                android:text="@string/white" />
+        </RadioGroup>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerViewVarietal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/radioGroupVarietal"
+            android:layout_centerHorizontal="true"
+            android:layout_marginEnd="@dimen/margin_fifteen_dp"
+            android:layout_marginLeft="@dimen/margin_fifteen_dp"
+            android:layout_marginRight="@dimen/margin_fifteen_dp"
+            android:layout_marginStart="@dimen/margin_fifteen_dp"
+            android:layout_marginTop="@dimen/margin_five_dp"
+            android:contentDescription="@string/select_wine_varietal"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+        <TextView
+            android:id="@+id/textViewPriceRange"
+            style="@style/TextViewTitle"
+            android:layout_below="@+id/recyclerViewVarietal"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:text="@string/price_range" />
+
+        <RadioGroup
+            android:id="@+id/radioGroupPriceRangeOne"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/radioGroupRegion"
+            android:layout_alignStart="@+id/radioGroupRegion"
+            android:layout_below="@+id/textViewPriceRange"
+            android:layout_marginTop="11dp"
+            android:orientation="horizontal">
+
+
+            <RadioButton
+                android:id="@+id/radioButtonZero"
+                style="@style/RadioPriceRange"
+                android:contentDescription="@string/select_price_range_between_0_to_10_dollars"
+                android:text="@string/priceRange_0_To_10" />
+
+            <RadioButton
+                android:id="@+id/radioButtonTwenty"
+                style="@style/RadioPriceRange"
+                android:contentDescription="@string/select_price_range_between_20_to_30_dollars"
+                android:text="@string/priceRange_20_To_30" />
+
+
+            <RadioButton
+                android:id="@+id/radioButtonForty"
+                style="@style/RadioPriceRange"
+                android:contentDescription="@string/select_price_range_between_40_to_50_dollars"
+                android:text="@string/priceRange_40_To_50" />
+
+        </RadioGroup>
+
+        <RadioGroup
+            android:id="@+id/radioGroupPriceRangeTwo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/radioGroupPriceRangeOne"
+            android:layout_alignStart="@+id/radioGroupPriceRangeOne"
+            android:layout_below="@+id/radioGroupPriceRangeOne"
+            android:layout_marginBottom="@dimen/margin_ten_dp"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/radioButtonTen"
+                style="@style/RadioPriceRangeTwo"
+                android:contentDescription="@string/select_price_range_between_10_to_20_dollars"
+                android:text="@string/priceRange_10_To_20" />
+
+            <RadioButton
+                android:id="@+id/radioButtonThirty"
+                style="@style/RadioPriceRangeTwo"
+                android:contentDescription="@string/select_price_range_between_30_to_40_dollars"
+                android:text="@string/priceRange_30_To_40" />
+
+            <RadioButton
+                android:id="@+id/radioButtonFifty"
+                style="@style/RadioPriceRangeTwo"
+                android:contentDescription="@string/select_price_range_of_50_plus_dollars"
+                android:text="@string/priceRange_50_Plus" />
+
+        </RadioGroup>
+
+        <Button
+            android:id="@+id/buttonSearch"
+            android:elevation="@dimen/button_elevation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/radioGroupPriceRangeTwo"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="@dimen/margin_ten_dp"
+            android:layout_marginTop="@dimen/margin_ten_dp"
+            android:contentDescription="@string/search_for_wines"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:text="@string/search"
+            tools:ignore="UnusedAttribute"/>
+    </RelativeLayout>
+</android.support.v4.widget.NestedScrollView>

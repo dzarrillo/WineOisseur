@@ -1,0 +1,34 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="nav_header_vertical_spacing">16dp</dimen>
+    <dimen name="nav_header_height">160dp</dimen>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+
+    <!--
+Refer to App Widget Documentation for margin information
+http://developer.android.com/guide/topics/appwidgets/index.html#CreatingLayout
+    -->
+    <dimen name="widget_margin">8dp</dimen>
+    <dimen name="keyline_margin">16dp</dimen>
+    <dimen name="keyline_content_start">72dp</dimen>
+    <dimen name="radio_button_width">122dp</dimen>
+    <dimen name="margin_five_dp">5dp</dimen>
+    <dimen name="margin_eight_dp">8dp</dimen>
+    <dimen name="margin_ten_dp">10dp</dimen>
+    <dimen name="margin_fifteen_dp">15dp</dimen>
+    <dimen name="margin_eighteen_dp">18dp</dimen>
+    <dimen name="margin_twenty_dp">20dp</dimen>
+    <dimen name="margin_twentyfour_dp">24dp</dimen>
+    <dimen name="margin_twentyfive_dp">25dp</dimen>
+    <dimen name="margin_thirteight_dp">38dp</dimen>
+    <dimen name="margin_forty_dp">40dp</dimen>
+    <dimen name="padding_ten_dp">10dp</dimen>
+    <dimen name="padding_two_dp">2dp</dimen>
+
+    <dimen name="button_elevation">2dp</dimen>
+
+
+</resources>

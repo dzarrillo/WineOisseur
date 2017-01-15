@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Red Varietal wines -->
+    <string-array name="fact_red_wine_name">
+        <item>Cabernet Sauvignon</item>
+        <item>Cabernet Franc</item>
+        <item>Merlot</item>
+        <item>Pinot Noir</item>
+        <item>Zinfandel</item>
+        <item>Chianti</item>
+        <item>Sangiovese</item>
+        <item>Claret</item>
+        <item>Malbec</item>
+        <item>Petite Sirah</item>
+        <item>Port</item>
+        <item>Rose</item>
+    </string-array>
+
+    <string name="cabernetsauvignon">Currant, Plum, Black Cherry and Spice, with notes of Olive,
+        Vanilla Mint, Tobacco, Toasty Cedar, Anise, Pepper and Herbs. Full-bodied wines with great
+        depth that improve with aging. Cabernet spends from 15 to 30 months aging in American and
+        French Oak barrels which tend to soften the tannins, adding the toasty cedar and vanilla flavors.</string>
+
+    <string name="cabernetfranc">Red wine grape used in Bordeaux for blending with Cabernet
+        Sauvignon. It is an earlier-maturing red wine, due to its lower level of tannins.
+        Light to medium-bodied wine with more immediate fruit than Cabernet Sauvignon and some of
+        the herbaceous odors evident in unripe Cabernet Sauvignon.</string>
+
+    <string name="merlot">Herbs, Green Olive, Cherry and Chocolate. Softer and medium in weight with
+        fewer tannins than Cabernet and ready to drink sooner. Takes well to Oak aging. It is
+        frequently used as a blending wine with Cabernet to soften</string>
+
+    <string name="pinotnoir">This is the great, noble grape of Burgundy. Difficult to grow but at
+        its best it is smooth and richer than Cabernet Sauvignon with less tannin. Raisin like
+        flavors with undertones of black cherry, spice and raspberry. Widely used in the making of
+        champagne sparkling wines.</string>
+
+    <string name="zinfandel">With predominant raspberry flavors and a spicy aroma, Zinfandels can
+        be bold and intense as well as light and fruity. It takes well to blending bringing out
+        flavors of cherry, wild berry and plum with notes of leather, earth and tar. It is the most
+        widely grown grape in California. Much of it is turned into White Zinfandel, a blush wine
+        that is slightly sweet.</string>
+
+    <string name="chianti">From a blend of grapes this fruity, light ruby-to-garnet-colored red may
+        be called Chianti Riserva when aged three or more years</string>
+
+    <string name="sangiovese">Known for its supple texture, medium to full-bodied spice flavors,
+        raspberry cherry and anise. Sangiovese is used in many fine Italian wines including Chianti</string>
+
+    <string name="claret">British term for red Bordeaux/Cabernet Sauvignon wines.</string>
+
+    <string name="malbec">Once important in Bordeaux and the Loire in various blends,
+        this not-very-hardy grape has been steadily replaced by Merlot and the two Cabernets.
+        However, Argentina is markedly successful with this varietal. In the United States Malbec
+        is a blending grape only, and an insignificant one at that, but a few wineries use it, the
+        most obvious reason being that it’s considered part of the Bordeaux-blend recipe.</string>
+
+    <string name="petitesirah">Plum and blackberry flavors mark this deep, ruby colored wine.
+        Usually full-bodied with chewy tannins. Used in France and California as a blending wine.
+        Not related to the Syrah of France</string>
+
+    <string name="port">Fortified wine from the Douro region of Portugal. 
+        Styles include: Late Bottle (LB), Tawny, Ruby, Aged, and Vintage. Mostly sweet and red</string>
+
+    <string name="rose">Sometimes called blush. Any light pink wine, dry to sweet, made by
+        removing the skins of red grapes early in the fermentation process or by mixing red and white</string>
+
+
+</resources>

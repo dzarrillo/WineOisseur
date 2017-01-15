@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/imageWidgetBottle"
+        app:srcCompat="@drawable/ic_menu_camera"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:contentDescription="@string/pic"
+        android:padding="@dimen/padding_two_dp" />
+
+    <TextView
+        android:id="@+id/textWidgetRating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginEnd="@dimen/margin_five_dp"
+        android:layout_marginRight="@dimen/margin_five_dp"
+        android:layout_toEndOf="@+id/imageWidgetBottle"
+        android:layout_toRightOf="@+id/imageWidgetBottle"
+        android:padding="@dimen/padding_two_dp"
+        android:text="@string/rating" />
+
+
+
+    <TextView
+        android:id="@+id/ratingBarTextWidget"
+        android:text="@string/five"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginEnd="@dimen/margin_five_dp"
+        android:layout_marginRight="@dimen/margin_five_dp"
+        android:layout_toEndOf="@+id/textWidgetRating"
+        android:layout_toRightOf="@+id/textWidgetRating"
+        android:padding="@dimen/padding_two_dp"/>
+
+
+    <TextView
+        android:id="@+id/textWidgetName"
+        android:text="@string/bottle_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/padding_two_dp"
+        android:layout_marginTop="@dimen/margin_five_dp"
+        android:layout_marginBottom="@dimen/margin_five_dp"
+        android:layout_marginRight="@dimen/margin_five_dp"
+        android:layout_marginEnd="@dimen/margin_five_dp"
+        android:layout_below="@+id/ratingBarTextWidget"
+        android:layout_toRightOf="@+id/imageWidgetBottle"
+        android:layout_toEndOf="@+id/imageWidgetBottle"
+        />
+    <TextView
+        android:id="@+id/textWidgetPrice"
+        android:text="@string/ten_dollars"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/padding_two_dp"
+        android:layout_marginTop="@dimen/margin_five_dp"
+        android:layout_marginBottom="@dimen/margin_five_dp"
+        android:layout_marginRight="@dimen/margin_five_dp"
+        android:layout_marginEnd="@dimen/margin_five_dp"
+        android:layout_below="@+id/textWidgetName"
+        android:layout_toRightOf="@+id/imageWidgetBottle"
+        android:layout_toEndOf="@+id/imageWidgetBottle"
+        />
+</RelativeLayout>
