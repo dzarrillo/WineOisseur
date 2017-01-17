@@ -18,15 +18,7 @@ import com.dzartek.wineoisseur.R;
 
 public class FragmentRegionDlg extends DialogFragment implements View.OnClickListener{
     private final String TAG = FragmentRegionDlg.class.getName();
-    private final String ARGENTINA = "ar";
-    private final String AUSTRALIA = "au";
-    private final String AUSTRIA = "at";
-    private final String BELGIUM = "be";
-    private final String CANADA = "ca";
-    private final String GERMANY = "de";
-    private final String NEWZEALNAD = "nz";
-    private final String PORTUGAL = "pt";
-    private final String SPAIN = "es";
+
 
     private RadioButton rdoArgentina, rdoAustralia, rdoAustria, rdoBelgium, rdoCanada, rdoGermany,
         rdoNewZealand, rdoPortugal, rdoSpain;
@@ -41,16 +33,32 @@ public class FragmentRegionDlg extends DialogFragment implements View.OnClickLis
     public FragmentRegionDlg(){}
 
 
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        if (savedInstanceState != null) {
+            mRegion = savedInstanceState.getString(getString(R.string.region));
+        }
+    }
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         View v = inflater.inflate(R.layout.fragment_regiondlg, container, false);
 
-        getDialog().setTitle("Regions");
+        getDialog().setTitle(R.string.region);
 
         initializeWidgets(v);
         return v;
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+
+        outState.putString(getString(R.string.region), mRegion);
     }
 
     @Override
@@ -60,7 +68,7 @@ public class FragmentRegionDlg extends DialogFragment implements View.OnClickLis
             mRegionCallback = (OnRegionSelectedListener) getActivity();
         } catch (ClassCastException e) {
             throw new ClassCastException(getActivity().toString() +
-            " must implement OnRegionSelectedListener!");
+            getString(R.string.implement_OnRegionSelectedListener));
         }
     }
 
@@ -95,35 +103,35 @@ public class FragmentRegionDlg extends DialogFragment implements View.OnClickLis
 
         switch (view.getId()){
             case R.id.radioButtonArgentina:
-                mRegion = ARGENTINA;
+                mRegion = getString(R.string.argentina);
                 break;
             case R.id.radioButtonAustria:
-                mRegion = AUSTRIA;
+                mRegion = getString(R.string.austria);
                 break;
             case R.id.radioButtonAustralia:
-                mRegion = AUSTRALIA;
+                mRegion = getString(R.string.australia);
                 break;
             case R.id.radioButtonBelgium:
-                mRegion = BELGIUM;
+                mRegion = getString(R.string.belgium);
                 break;
             case R.id.radioButtonCanada:
-                mRegion = CANADA;
+                mRegion = getString(R.string.canada);
                 break;
             case R.id.radioButtonGermany:
-                mRegion = GERMANY;
+                mRegion = getString(R.string.germany);
                 break;
             case R.id.radioButtonNewZealand:
-                mRegion = NEWZEALNAD;
+                mRegion = getString(R.string.new_zealand);
                 break;
             case R.id.radioButtonPortugal:
-                mRegion = PORTUGAL;
+                mRegion = getString(R.string.portugal);
                 break;
             case R.id.radioButtonSpain:
-                mRegion = SPAIN;
+                mRegion = getString(R.string.spain);
                 break;
             case R.id.buttonOk:
                 if (mRegion == null){
-                    Toast.makeText(getActivity(), "Please make selection!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), getString(R.string.please_make_selection), Toast.LENGTH_SHORT).show();
                     return;
                 } else {
                     mRegionCallback.onRegionSelected(mRegion);

@@ -23,7 +23,7 @@ import java.util.ArrayList;
  */
 
 public class FragmentWineResults extends Fragment {
-    private final String TAG = "FragmentWineResults";
+    private final String TAG = FragmentWineResults.class.getName();
     private ArrayList<MyWine> myWineList;
     private RecyclerView mRecyclerViewResults;
     private RvWineResultsAdapter mWineResultsAdapter;
@@ -38,7 +38,6 @@ public class FragmentWineResults extends Fragment {
         } else {
             myWineList = savedInstanceState.getParcelableArrayList("WINELIST");
         }
-
     }
 
 
@@ -96,7 +95,7 @@ public class FragmentWineResults extends Fragment {
     }
 
     static class RecyclerTouchListener implements RecyclerView.OnItemTouchListener {
-        private final String TAG = "RecyclerTouchListener";
+        private final String TAG = RecyclerTouchListener.class.getName();
         private GestureDetector gestureDetector;
         private FragmentWineResults.ClickListener clickListener;
 

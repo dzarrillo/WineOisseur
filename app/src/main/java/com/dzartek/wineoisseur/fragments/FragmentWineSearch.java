@@ -27,7 +27,6 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.dzartek.wineoisseur.BuildConfig;
 import com.dzartek.wineoisseur.R;
 import com.dzartek.wineoisseur.adapterviews.RvVarietalAdapter;
 import com.dzartek.wineoisseur.apicall.WineApi;
@@ -52,7 +51,7 @@ import retrofit2.Response;
 
 public class FragmentWineSearch extends Fragment implements OnClickListener {
 
-    private final String TAG = "FragmentWineSearch";
+    private final String TAG = FragmentWineSearch.class.getName();
     // RadioGroups
     private RadioGroup radioGroupPriceRangeOne, radioGroupPriceRangeTwo;
     // RadioButtons
@@ -275,7 +274,7 @@ public class FragmentWineSearch extends Fragment implements OnClickListener {
             @Override
             public void onClick(View view) {
 
-                mProgress = ProgressDialog.show(getActivity(), "Searching...", "Please wait...", true);
+                mProgress = ProgressDialog.show(getActivity(), getString(R.string.searching), getString(R.string.please_wait), true);
                 // Save search criteria to usersettings
                 saveUserSettings();
                 
@@ -348,7 +347,7 @@ public class FragmentWineSearch extends Fragment implements OnClickListener {
                                     mWineFoundCallback.onWineFound(myWineList, mProgress);
                                 } else {
                                     mProgress.dismiss();
-                                    showMyToast("No Results Found!");
+                                    showMyToast(getString(R.string.no_results_Found));
                                 }
 
                             } else {
@@ -362,12 +361,12 @@ public class FragmentWineSearch extends Fragment implements OnClickListener {
                         @Override
                         public void onFailure(Call<SnoothWine> call, Throwable t) {
                             mProgress.dismiss();
-                            showMyToast("Failed to get Data!");
+                            showMyToast(getString(R.string.failed_to_get_data));
                         }
                     });
         } else {
             mProgress.dismiss();
-            showMyToast("Missing region!");
+            showMyToast(getString(R.string.missing_region));
         }
     }
 
@@ -578,7 +577,7 @@ public class FragmentWineSearch extends Fragment implements OnClickListener {
                 FragmentRegionDlg fragRegionDlg = new FragmentRegionDlg();
                 fragRegionDlg.setStyle(DialogFragment.STYLE_NORMAL, R.style.CustomDialog);
 
-                fragRegionDlg.show(getFragmentManager(), "Region");
+                fragRegionDlg.show(getFragmentManager(), getString(R.string.region));
                 break;
         }
     }
@@ -591,7 +590,7 @@ public class FragmentWineSearch extends Fragment implements OnClickListener {
     }
 
     static class RecyclerTouchListener implements RecyclerView.OnItemTouchListener {
-        private final String TAG = "RecyclerTouchListener";
+        private final String TAG = RecyclerTouchListener.class.getName();
         private GestureDetector gestureDetector;
         private ClickListener clickListener;
 
@@ -640,7 +639,7 @@ public class FragmentWineSearch extends Fragment implements OnClickListener {
     //  Used by the FragmentRegionDlg triggering event in MainWineActivity
     public void updateRegion(String region) {
         mRegion = region;
-        showMyToast("Region " + mRegion);
+//        showMyToast("Region " + mRegion);
     }
 
     public void showMyToast(String msg) {

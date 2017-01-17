@@ -4,6 +4,8 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.widget.Toast;
+
+import com.dzartek.wineoisseur.R;
 import com.dzartek.wineoisseur.utils.Constants;
 
 public class FavoriteWineReceiver extends BroadcastReceiver {
@@ -24,24 +26,22 @@ public class FavoriteWineReceiver extends BroadcastReceiver {
 
                 if (reponseMessage.equals("true")) {
                   //  Log.d(TAG, "ISFAVORITE: " + reponseMessage);
-                    Toast.makeText(context, "FavoriteWineReceiver - Response: "
-                            + responseString + " - Message: " + reponseMessage, Toast.LENGTH_SHORT).show();
-                } else {
-                  //  Log.d(TAG, "ISFAVORITE: " + reponseMessage);
+                    Toast.makeText(context, context.getString(R.string.FavoriteWineReceiver)
+                            + responseString + context.getString(R.string.message_Receiver) + reponseMessage, Toast.LENGTH_SHORT).show();
+
                 }
 
                 break;
             case Constants.ACTION_DELETE:
 //                    showMyToast("FavoriteWine deleted! " + responseString + " - Message: " + reponseMessage);
-                Toast.makeText(context, "FavoriteWine deleted! "
+                Toast.makeText(context, context.getString(R.string.favoriteWine_deleted)
                         + responseString
-                        + " - Message: " + reponseMessage, Toast.LENGTH_SHORT).show();
+                        + context.getString(R.string.message_Receiver) + reponseMessage, Toast.LENGTH_SHORT).show();
                 break;
             case Constants.ACTION_SAVE:
-//                    showMyToast("FavoriteWine saved! " + responseString + " - Message: " + reponseMessage);
-                Toast.makeText(context, "FavoriteWine Saved! "
+                Toast.makeText(context, context.getString(R.string.favoriteWine_saved)
                         + responseString
-                        + " - Message: " + reponseMessage, Toast.LENGTH_SHORT).show();
+                        + context.getString(R.string.message_Receiver) + reponseMessage, Toast.LENGTH_SHORT).show();
                 break;
         }
     }

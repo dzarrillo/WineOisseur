@@ -15,7 +15,7 @@ import com.dzartek.wineoisseur.contentprovider.FavoriteWinesContract;
  */
 
 public class WidgetWineFactory implements RemoteViewsService.RemoteViewsFactory {
-    private String TAG = "WidgetWineFactory";
+    private String TAG = WidgetWineFactory.class.getName();
     private Context mContext;
     private int mWidgetId;
     private Cursor mCursor;
@@ -51,14 +51,6 @@ public class WidgetWineFactory implements RemoteViewsService.RemoteViewsFactory 
                     null,
                     null,
                     null);
-            if (mCursor != null) {
-               // Log.d(TAG, "onDataSetChanged method: recs - " + mCursor.getCount());
-            } else {
-               // Log.d(TAG, "onDataSetChanged method: recs - 0 ");
-            }
-        } else {
-
-           // Log.d(TAG, "mContext is null");
 
         }
 

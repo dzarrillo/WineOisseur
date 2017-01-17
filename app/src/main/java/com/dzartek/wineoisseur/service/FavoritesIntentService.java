@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
 
+import com.dzartek.wineoisseur.R;
 import com.dzartek.wineoisseur.broadcastreceiver.FavoriteWineReceiver;
 import com.dzartek.wineoisseur.contentprovider.FavoriteWinesContract;
 import com.dzartek.wineoisseur.datamodel.MyWine;
@@ -79,9 +80,9 @@ public class FavoritesIntentService extends IntentService {
                 "code = ?", new String[]{code});
 
         if (value > 0) {
-            mResponseMessage = "Record Deleted!";
+            mResponseMessage = getApplicationContext().getString(R.string.record_deleted);
         } else {
-            mResponseMessage = "Record not Deleted!";
+            mResponseMessage = getApplicationContext().getString(R.string.record_not_deleted);
         }
 
         Intent broadcastIntent = new Intent();
@@ -120,7 +121,7 @@ public class FavoritesIntentService extends IntentService {
         Uri newUri = getApplication().getApplicationContext().getContentResolver().
                 insert(FavoriteWinesContract.Wine.CONTENT_URI, newValues);
 
-        mResponseMessage = "Record saved!";
+        mResponseMessage = getApplicationContext().getString(R.string.record_saved);
 
         Intent broadcastIntent = new Intent();
         broadcastIntent.setAction(FavoriteWineReceiver.PROCESS_RESPONSE);

@@ -50,21 +50,18 @@ import retrofit2.Response;
 public class FragmentWineStores extends Fragment implements GoogleApiClient.ConnectionCallbacks,
     GoogleApiClient.OnConnectionFailedListener, LocationListener{
 
-    private final String TAG = "FragmentWineStores";
+    private final String TAG = FragmentWineStores.class.getName();
     private GoogleApiClient mGoogleApiClient;
     private final int MY_PERMISSIONS_REQUEST_LOCATION = 1;
     private TextView txtOutput, textViewLastLocation;
     protected LocationRequest mLocationRequest;
     private Location mLastLocation;
-    //  longitude/latitude of current location
     private String mOrigin;
-    //  longitude/latitude of destination
     private String mDestin;
     private MyStore mMyStore;
     private ArrayList<MyStore> mStoreList = new ArrayList<>();
     private RecyclerView recyclerViewStores;
     private GridLayoutManager gridLayoutMgrStores;
-    // Adapter
     private RvStoreResults storeResultsAdapter;
 
     @Nullable
@@ -79,12 +76,8 @@ public class FragmentWineStores extends Fragment implements GoogleApiClient.Conn
                 .addOnConnectionFailedListener(this)
                 .build();
 
-        if(servicesAvailable()){
-          //  Log.d(TAG, "Google service is available");
-            //showMyToast("Google service is available");
-        }else{
-            showMyToast("Google play service is not available!");
-
+        if(!servicesAvailable()){
+            showMyToast(getResources().getString(R.string.google_play_service_notavailable));
         }
         initializeRecyclerView(v);
 
@@ -123,7 +116,7 @@ public class FragmentWineStores extends Fragment implements GoogleApiClient.Conn
     }
 
     static class RecyclerTouchListener implements RecyclerView.OnItemTouchListener {
-        private final String TAG = "RecyclerTouchListener";
+        private final String TAG = RecyclerTouchListener.class.getName();
         private GestureDetector gestureDetector;
         private FragmentWineStores.ClickListener clickListener;
 
@@ -204,26 +197,18 @@ public class FragmentWineStores extends Fragment implements GoogleApiClient.Conn
 
     @Override
     public void onConnected(@Nullable Bundle bundle) {
-      //  Log.i(TAG, "OnConnected!");
-
-
         mLocationRequest = LocationRequest.create();
         mLocationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
         mLocationRequest.setInterval(10); // Update location every second
 
-        //String mLastLoc;
         if (Build.VERSION.SDK_INT >= 23) {
-            //int permissionCheck = ContextCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_FINE_LOCATION);
             if (ContextCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
                 ActivityCompat.requestPermissions(getActivity(),
                         new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
                         MY_PERMISSIONS_REQUEST_LOCATION);
             } else {
-              //  Log.i(TAG, "Permission already granted!");
                 mLastLocation = LocationServices.FusedLocationApi.getLastLocation(mGoogleApiClient);
                 if(mLastLocation != null){
-//                    mLastLoc = String.valueOf(" Lat: " + mLastLocation.getLatitude())
-//                            + " Long: " + String.valueOf(mLastLocation.getLongitude());
 
                     CurrentLoc.origin = mLastLocation.getLatitude() + "," + mLastLocation.getLongitude();
                 }
@@ -232,11 +217,8 @@ public class FragmentWineStores extends Fragment implements GoogleApiClient.Conn
 
         } else {
 
-//            LocationServices.FusedLocationApi.requestLocationUpdates(mGoogleApiClient, mLocationRequest, this);
             mLastLocation = LocationServices.FusedLocationApi.getLastLocation(mGoogleApiClient);
             if(mLastLocation != null) {
-//                mLastLoc = String.valueOf(" Lat: " + mLastLocation.getLatitude())
-//                        + " Long: " + String.valueOf(mLastLocation.getLongitude());
                 CurrentLoc.origin = mLastLocation.getLatitude() + "," + mLastLocation.getLongitude();
                 getApiData();
             }
@@ -251,10 +233,7 @@ public class FragmentWineStores extends Fragment implements GoogleApiClient.Conn
 
         switch (requestCode) {
             case MY_PERMISSIONS_REQUEST_LOCATION:
-
-                Toast.makeText(getActivity(), "Permission granted.", Toast.LENGTH_LONG).show();
-                // permission was granted, yay! Do the
-                // location task you need to do.
+                showMyToast(getString(R.string.permission_granted));
         }
 
     }
@@ -268,8 +247,6 @@ public class FragmentWineStores extends Fragment implements GoogleApiClient.Conn
         if (ConnectionResult.SUCCESS == resultCode) {
             return true;
         } else {
-//            GooglePlayServicesUtil.getErrorDialog(resultCode, getActivity(), 0).show();
-            //googleApi.getErrorDialog(getActivity(), resultCode, 0).show();
             return false;
         }
     }
@@ -307,43 +284,38 @@ public class FragmentWineStores extends Fragment implements GoogleApiClient.Conn
                     for(int i = 0; i < num; i++){
                         mMyStore = new MyStore();
 
-                       // Log.d(TAG, "Name: " + response.body().getResults().get(i).getName());
                         mMyStore.setName(response.body().getResults().get(i).getName());
                         mMyStore.setVicinity(response.body().getResults().get(i).getVicinity());
                         mMyStore.setLatitude(response.body().getResults().get(i).getGeometry().getLocation().getLat());
                         mMyStore.setLongitude(response.body().getResults().get(i).getGeometry().getLocation().getLng());
                         mMyStore.setIcon(response.body().getResults().get(i).getIcon());
-                        mMyStore.setPricelevel(response.body().getResults().get(i).getPriceLevel());  // int
+                        mMyStore.setPricelevel(response.body().getResults().get(i).getPriceLevel());
 
 
                         if (response.body().getResults().get(i).getOpeningHours() != null){
                             Boolean isOpen = response.body().getResults().get(i).getOpeningHours().isOpenNow();
                             if(isOpen){
-                                mMyStore.setOpennow("Open Now");
+                                mMyStore.setOpennow(getString(R.string.open_now));
                             } else{
-                                mMyStore.setOpennow("Closed");
+                                mMyStore.setOpennow(getString(R.string.closed));
                             }
                         } else {
-                            mMyStore.setOpennow("Closed");
+                            mMyStore.setOpennow(getString(R.string.closed));
                         }
-
 
                         mStoreList.add(mMyStore);
                     }
 
                     storeResultsAdapter.notifyDataSetChanged();
-
-                    //response.body().getResults().size()
                 } else{
                     ResponseBody errBody = response.errorBody();
-                   // Log.d(TAG, errBody.toString());
                     showMyToast(errBody.toString());
                 }
             }
 
             @Override
             public void onFailure(Call<LiquorStore> call, Throwable t) {
-                showMyToast("Failed to get Data!");
+                showMyToast(getString(R.string.failed_to_get_data));
             }
         });
     }

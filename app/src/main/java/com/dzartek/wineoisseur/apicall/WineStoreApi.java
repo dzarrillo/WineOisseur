@@ -3,6 +3,7 @@ package com.dzartek.wineoisseur.apicall;
 
 
 import com.dzartek.wineoisseur.pojolocation.LiquorStore;
+import com.dzartek.wineoisseur.utils.Constants;
 
 import retrofit2.Call;
 import retrofit2.Retrofit;
@@ -15,7 +16,7 @@ import retrofit2.http.Query;
  */
 
 public interface WineStoreApi {
-    String BASE_URL = "https://maps.googleapis.com/maps/api/place/";
+    String BASE_URL = Constants.BASE_URL_GOOGLE_PLACE;   //"https://maps.googleapis.com/maps/api/place/";
 
     @GET("nearbysearch/json")
     Call<LiquorStore> getWineStores(@Query("location") String location,

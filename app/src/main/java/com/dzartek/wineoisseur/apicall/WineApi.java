@@ -2,6 +2,7 @@ package com.dzartek.wineoisseur.apicall;
 
 import com.dzartek.wineoisseur.pojodessert.DessertWine;
 import com.dzartek.wineoisseur.pojomodel.SnoothWine;
+import com.dzartek.wineoisseur.utils.Constants;
 
 import retrofit2.Call;
 import retrofit2.Retrofit;
@@ -14,7 +15,7 @@ import retrofit2.http.Query;
  */
 
 public interface WineApi {
-    String BASE_URL = "http://api.snooth.com/";
+    String BASE_URL = Constants.BASE_URL;
 
     @GET("wines/")
     Call<SnoothWine> getWines(@Query("akey") String api_key,

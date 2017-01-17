@@ -14,7 +14,7 @@ import com.dzartek.wineoisseur.R;
  * Implementation of App Widget functionality.
  */
 public class WidgetWineProvider extends AppWidgetProvider {
-    private final String TAG = "WidgetWineProvider";
+    private final String TAG = WidgetWineProvider.class.getName();
 
 
     @Override
@@ -63,7 +63,7 @@ public class WidgetWineProvider extends AppWidgetProvider {
         //CharSequence widgetText = context.getString(R.string.appwidget_text);
         // Construct the RemoteViews object
         RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.widget_wine_provider);
-        views.setTextViewText(R.id.appwidget_text, "Favorite Wines");
+        views.setTextViewText(R.id.appwidget_text, context.getString(R.string.appwidget_text));
         setList(views, context, appWidgetId);
         // Instruct the widget manager to update the widget
         appWidgetManager.updateAppWidget(appWidgetId, views);

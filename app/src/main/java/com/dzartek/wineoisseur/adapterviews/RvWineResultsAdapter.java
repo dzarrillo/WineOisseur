@@ -4,7 +4,6 @@ import android.appwidget.AppWidgetManager;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
-import android.content.res.Resources;
 import android.database.Cursor;
 import android.net.Uri;
 import android.support.v7.widget.CardView;
@@ -162,10 +161,10 @@ public class RvWineResultsAdapter extends RecyclerView.Adapter<RvWineResultsAdap
             public void onClick(View view) {
                 if (!Constants.isOnline(context)) {
                     Toast.makeText(view.getContext(),
-                            "WebSite: " + myWineList.get(position).getLink()
-                                    + "\nis unavailable at this time!", Toast.LENGTH_LONG).show();
+                            context.getString(R.string.webSite_unavailable), Toast.LENGTH_LONG).show();
                 } else {
-                    Toast.makeText(view.getContext(), "WebSite: " + myWineList.get(position).getLink(), Toast.LENGTH_LONG).show();
+
+                    //Toast.makeText(view.getContext(), "WebSite: " + myWineList.get(position).getLink(), Toast.LENGTH_LONG).show();
                     Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(myWineList.get(position).getLink()));
                     context.startActivity(intent);
                 }

@@ -4,13 +4,18 @@ import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 
-import com.dzartek.wineoisseur.BuildConfig;
 
 /**
  * Created by dzarrillo on 11/15/2016.
  */
 
 public final class Constants {
+    // Google directions api
+    public static final String GOOGLE_DIRECTIONS_API = "Your key here";
+    // Snooth api
+    public static final String BASE_URL = "http://api.snooth.com/";
+    // Google maps places
+    public static final String BASE_URL_GOOGLE_PLACE = "https://maps.googleapis.com/maps/api/place/";
     // User setting keys
     public static final String SETTINGS_REGION = "REGION";
     public static final String SETTINGS_MIN_RATING = "MINRATING";

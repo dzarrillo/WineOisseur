@@ -21,7 +21,7 @@ import com.dzartek.wineoisseur.contentprovider.FavoriteWinesContract;
  */
 
 public class FragmentFavoriteWines extends Fragment implements LoaderManager.LoaderCallbacks<Cursor>{
-    private final String TAG = "FragmentFavoriteWines";
+    private final String TAG = FragmentFavoriteWines.class.getName();
     private ListView listViewFavorites;
     private CursorFavoritesAdapter mCursorFavoritesAdapter;
     // Identifies a particular Loader being used in this component

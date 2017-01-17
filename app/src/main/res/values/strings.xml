@@ -33,6 +33,45 @@
     <string name="add_remove_favorites_database">Add or remove from Favorites database!</string>
     <string name="tap_for_map">Tap to see map</string>
     <string name="click_here_to_go_to_winery_website">Tap to go to Winery website!</string>
+    <string name="google_play_service_notavailable">Google play service is not available!</string>
+    <string name="closed">Closed</string>
+    <string name="open_now">Open Now</string>
+    <string name="failed_to_get_data">Failed to get Data! </string>
+    <string name="permission_granted">Permission granted!</string>
+    <string name="implement_OnRegionSelectedListener"> must implement OnRegionSelectedListener!</string>
+    <string name="please_make_selection">Please make selection!</string>
+    <string name="searching">Searching</string>
+    <string name="please_wait">Please wait</string>
+    <string name="no_results_Found">No Results Found</string>
+    <string name="missing_region">Missing region!</string>
+    <string name="network_is_not_available">Network is not available,</string>
+    <string name="fetching_favorites">fetching favorites from database, if available!</string>
+    <string name="please_enter_origin_address">Please enter origin address!</string>
+    <string name="please_enter_destination_address">Please enter destination address!</string>
+    <string name="current_location">Current Location</string>
+    <string name="finding_directions">Finding directions</string>
+    <string name="webSite_unavailable">WebSite is unavailable at this time!</string>
+    <string name="has_been_removed"> has been removed!</string>
+    <string name="has_not_been_removed"> has not been removed!</string>
+    <string name="message_name">Name: </string>
+    <string name="record_deleted">Record Deleted!</string>
+    <string name="record_not_deleted">Record not Deleted!</string>
+    <string name="record_saved">Record saved!</string>
+    <string name="FavoriteWineReceiver">FavoriteWineReceiver - Response: </string>
+    <string name="message_Receiver"> - Message: </string>
+    <string name="favoriteWine_deleted">FavoriteWine deleted! </string>
+    <string name="favoriteWine_saved">FavoriteWine Saved! </string>
+
+    <!-- More regions -->
+    <string name="ARGENTINA">AR</string>
+    <string name="AUSTRALIA">AU</string>
+    <string name="AUSTRIA">AT</string>
+    <string name="BELGIUM">BE</string>
+    <string name="CANADA">CA</string>
+    <string name="GERMANY">DE</string>
+    <string name="NEWZEALNAD">NZ</string>
+    <string name="PORTUGAL">PT</string>
+    <string name="SPAIN">ES</string>
 
     <!-- Snooth api -->
     <string name="base_url">http://api.snooth.com/</string>
@@ -70,9 +109,9 @@
     <string name="radius">5000</string>
     <string name="liquor_store">liquor_store</string>
 
-    <!-- google_places_key cannot be restricted in console -->
-    <string name="google_places_key">AIzaSyA0w33T5coxeqgZnX4L71RtJSPXequLl4g</string>
-    <string name="google_maps_key">AIzaSyB1JAky66hCTpv1VYjSGPZX-lGzWgSJTCI</string>
+    <!-- Google API keys -->
+    <string name="google_places_key">Your key here</string>
+    <string name="google_maps_key">Your key here</string>
     <string name="title_activity_maps">Map</string>
     <string name="driving_directions">Driving directions</string>
     <string name="walking_directions">Walking directions</string>

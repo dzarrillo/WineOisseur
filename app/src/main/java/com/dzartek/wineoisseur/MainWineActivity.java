@@ -57,23 +57,9 @@ public class MainWineActivity extends AppCompatActivity
 
         // Obtain the Firebase Analytics instance.
         mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
-//        Bundle bundle = new Bundle();
-//        bundle.putInt(FirebaseAnalytics.Param.ITEM_ID, food.getId());
-//        bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, food.getName());
-        //Logs an app event.
-//        mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, bundle);
-        //Sets whether analytics collection is enabled for this app on this device.
         mFirebaseAnalytics.setAnalyticsCollectionEnabled(true);
-        //Sets the minimum engagement time required before starting a session.
-        // The default value is 10000 (10 seconds). Let's make it 20 seconds just for the fun
         mFirebaseAnalytics.setMinimumSessionDuration(20000);
-        //Sets the duration of inactivity that terminates the current session.
-        // The default value is 1800000 (30 minutes).
         mFirebaseAnalytics.setSessionTimeoutDuration(500);
-        //Sets the user ID property.
-//        firebaseAnalytics.setUserId(String.valueOf(food.getId()));
-        //Sets a user property to a given value.
-//        firebaseAnalytics.setUserProperty("Food", food.getName());
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         toggle = new ActionBarDrawerToggle(
@@ -92,9 +78,9 @@ public class MainWineActivity extends AppCompatActivity
         if (savedInstanceState == null) {
             // If not online get favorites
             if (!Constants.isOnline(this)) {
-                Toast.makeText(this, "Network is not available,"
-                                + "\nfetching favorites from database \n if available!"
-                        , Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, getString(R.string.network_is_not_available)
+                                + "\n" + getString(R.string.fetching_favorites),
+                        Toast.LENGTH_SHORT).show();
                 // Get data from favoritewines database
                 getFavorites();
             } else {
@@ -106,7 +92,6 @@ public class MainWineActivity extends AppCompatActivity
 
                 } else {
                     Constants.isTablet = true;
-//                    newFragment = new FragmentWineResults();
                     newFragment = new FragmentAboutVarietals();   //FragmentFavoriteWines();
                 }
 
@@ -145,13 +130,6 @@ public class MainWineActivity extends AppCompatActivity
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-
-        if (id == R.id.home) {
-
-            Toast.makeText(this, "Home key pressed", Toast.LENGTH_SHORT).show();
-        }
 
         return super.onOptionsItemSelected(item);
     }
@@ -167,9 +145,9 @@ public class MainWineActivity extends AppCompatActivity
         toggle.syncState();
         if (id == R.id.nav_wineSearch) {
             if (!Constants.isOnline(this)) {
-                Toast.makeText(this, "Network is not available,"
-                                + "\nfetching favorites from database \n if available!"
-                        , Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, getString(R.string.network_is_not_available)
+                                + "\n" + getString(R.string.fetching_favorites),
+                         Toast.LENGTH_SHORT).show();
                 getFavorites();
             } else {
 
@@ -192,7 +170,7 @@ public class MainWineActivity extends AppCompatActivity
             if (!Constants.isOnline(this)) {
                 // Do nothing
             } else {
-                mProgress = ProgressDialog.show(this, "Searching...", "Please wait...", true);
+                mProgress = ProgressDialog.show(this, getString(R.string.searching), getString(R.string.please_wait), true);
                 getApiData();
             }
 
@@ -276,22 +254,21 @@ public class MainWineActivity extends AppCompatActivity
                         mProgress.dismiss();
                     } else {
                         mProgress.dismiss();
-                        Toast.makeText(getApplicationContext(), "No Results Found!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), getString(R.string.no_results_Found), Toast.LENGTH_SHORT).show();
                     }
 
                 } else {
                     mProgress.dismiss();
                     ResponseBody errBody = response.errorBody();
                    // Log.d(TAG, errBody.toString());
-                    Toast.makeText(getApplicationContext(), "No Results Found!" + errBody.toString(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), getString(R.string.no_results_Found) + errBody.toString(), Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onFailure(Call<DessertWine> call, Throwable t) {
                 mProgress.dismiss();
-                Toast.makeText(getApplicationContext(), "Failed to get Data! " + t.getMessage(), Toast.LENGTH_SHORT).show();
-               // Log.d(TAG, t.getMessage());
+                Toast.makeText(getApplicationContext(), getString(R.string.failed_to_get_data) + t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -299,9 +276,13 @@ public class MainWineActivity extends AppCompatActivity
 
     @Override
     public void onRegionSelected(String region) {
-//        FragmentWineSearch newFragment = (FragmentWineSearch)getFragmentManager().findFragmentById(R.id.fragmentHolder);
         FragmentWineSearch fm;
-        fm = (FragmentWineSearch) getSupportFragmentManager().findFragmentById(R.id.fragmentHolder);
+        if (Constants.isTablet){
+            fm = new FragmentWineSearch();
+
+        } else {
+            fm = (FragmentWineSearch) getSupportFragmentManager().findFragmentById(R.id.fragmentHolder);
+        }
         fm.updateRegion(region);
 
     }

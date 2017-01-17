@@ -82,11 +82,11 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private void sendRequest() {
 
         if (mOrigin.isEmpty()) {
-            Toast.makeText(this, "Please enter origin address!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.please_enter_origin_address), Toast.LENGTH_SHORT).show();
             return;
         }
         if (mDestination.isEmpty()) {
-            Toast.makeText(this, "Please enter destination address!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.please_enter_destination_address), Toast.LENGTH_SHORT).show();
             return;
         }
 
@@ -103,7 +103,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         LatLng hcmus = new LatLng(mOriginLong, mOriginLat);
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(hcmus, 18));
         originMarkers.add(mMap.addMarker(new MarkerOptions()
-                .title("Current Location")
+                .title(getString(R.string.current_location))
                 .position(hcmus)));
 
 
@@ -122,8 +122,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     @Override
     public void onDirectionFinderStart() {
-        progressDialog = ProgressDialog.show(this, "Please wait.",
-                "Finding direction..!", true);
+        progressDialog = ProgressDialog.show(this, getString(R.string.please_wait),
+                getString(R.string.finding_directions), true);
 
         if (originMarkers != null) {
             for (Marker marker : originMarkers) {

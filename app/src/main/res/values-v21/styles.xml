@@ -12,7 +12,7 @@
         <item name="android:windowNoTitle">false</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:textColorPrimary">@color/colorPrimaryDark</item>
-        <item name="android:background">@color/wallet_dim_foreground_holo_dark</item>
+        <item name="android:background">@color/cardview_light_background</item>
         <item name="android:windowBackground">@color/colorAccent</item>
         <item name="android:backgroundDimEnabled">false</item>
     </style>

@@ -2,6 +2,7 @@ package com.dzartek.wineoisseur.maplocation;
 
 import android.os.AsyncTask;
 
+import com.dzartek.wineoisseur.utils.Constants;
 import com.google.android.gms.maps.model.LatLng;
 
 import org.json.JSONArray;
@@ -13,7 +14,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.util.ArrayList;
@@ -25,7 +25,6 @@ import java.util.List;
 
 public class DirectionFinder {
     private static final String DIRECTION_URL_API = "https://maps.googleapis.com/maps/api/directions/json?";
-    private static final String GOOGLE_API_KEY = "AIzaSyDnwLF2-WfK8cVZt9OoDYJ9Y8kspXhEHfI";
     private DirectionFinderListener listener;
     private String origin;
     private String destination;
@@ -48,7 +47,8 @@ public class DirectionFinder {
         String urlDestination = URLEncoder.encode(destination, "utf-8");
         String urlMode = URLEncoder.encode(mode, "utf-8");
 
-        return DIRECTION_URL_API + "origin=" + urlOrigin + "&destination=" + urlDestination + "&mode=" + urlMode + "&key=" + GOOGLE_API_KEY;
+        return DIRECTION_URL_API + "origin=" + urlOrigin + "&destination=" + urlDestination
+                + "&mode=" + urlMode + "&key=" + Constants.GOOGLE_DIRECTIONS_API;
     }
 
     private class DownloadRawData extends AsyncTask<String, Void, String> {

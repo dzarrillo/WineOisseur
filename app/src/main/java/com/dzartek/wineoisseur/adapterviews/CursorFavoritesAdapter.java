@@ -107,13 +107,14 @@ public class  CursorFavoritesAdapter extends CursorAdapter {
                         "code = ?",
                         new String[]{code});
                 if (result > 0) {
-                    Toast.makeText(mContext, value + " has been removed!", Toast.LENGTH_SHORT).show();
+
+                    Toast.makeText(mContext, value + context.getString(R.string.has_been_removed), Toast.LENGTH_SHORT).show();
                     // Update the appwidget here
                     int[] ids = AppWidgetManager.getInstance(context).getAppWidgetIds(new ComponentName(context, WidgetWineProvider.class));
                     WidgetWineProvider myWidget = new WidgetWineProvider();
                     myWidget.onUpdate(context, AppWidgetManager.getInstance(context),ids);
                 } else {
-                    Toast.makeText(mContext, value + " has not been deleted!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(mContext, value + context.getString(R.string.has_not_been_removed), Toast.LENGTH_SHORT).show();
                 }
 
             }
@@ -126,22 +127,21 @@ public class  CursorFavoritesAdapter extends CursorAdapter {
             @Override
             public void onClick(View view) {
 
-                String link = mCursor.getString(mCursor.getColumnIndex(FavoriteWinesContract.Wine.LINK));
+//                String link = mCursor.getString(mCursor.getColumnIndex(FavoriteWinesContract.Wine.LINK));
 
                 if (!Constants.isOnline(context)) {
+
                     Toast.makeText(view.getContext(),
-                            "WebSite: " + link
-                                    + "\nis unavailable at this time!", Toast.LENGTH_LONG).show();
+                            context.getString(R.string.webSite_unavailable), Toast.LENGTH_LONG).show();
                 } else {
                     int gid = (int) view.getTag();
                     mCursor.moveToPosition(gid);
-                    link = mCursor.getString(mCursor.getColumnIndex(FavoriteWinesContract.Wine.LINK));
+                    String link = mCursor.getString(mCursor.getColumnIndex(FavoriteWinesContract.Wine.LINK));
                     String value = mCursor.getString(mCursor.getColumnIndex(FavoriteWinesContract.Wine.NAME));
-                    Toast.makeText(mContext, "Name: " + value, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(mContext, context.getString(R.string.message_name) + value, Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(link));
                     context.startActivity(intent);
                 }
-
 
             }
         });

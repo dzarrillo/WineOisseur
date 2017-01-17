@@ -2,7 +2,6 @@ package com.dzartek.wineoisseur.datamodel;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.util.Log;
 
 /**
  * Created by dzarrillo on 10/13/2016.
@@ -151,7 +150,6 @@ public class MyWine implements Parcelable{
     public static final Creator<MyWine> CREATOR
             = new Creator<MyWine>() {
         public MyWine createFromParcel(Parcel in) {
-            Log.d("Movie", "Create from parcel");
             return new MyWine(in);
         }
 
