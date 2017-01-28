@@ -55,12 +55,13 @@
     <string name="has_not_been_removed"> has not been removed!</string>
     <string name="message_name">Name: </string>
     <string name="record_deleted">Record Deleted!</string>
-    <string name="record_not_deleted">Record not Deleted!</string>
+    <string name="record_not_deleted">Record not deleted!</string>
+    <string name="record_not_saved">Record not saved!</string>
     <string name="record_saved">Record saved!</string>
     <string name="FavoriteWineReceiver">FavoriteWineReceiver - Response: </string>
     <string name="message_Receiver"> - Message: </string>
-    <string name="favoriteWine_deleted">FavoriteWine deleted! </string>
-    <string name="favoriteWine_saved">FavoriteWine Saved! </string>
+    <string name="favoriteWine_deleted">Record deleted! </string>
+    <string name="favoriteWine_saved">Record Saved! </string>
 
     <!-- More regions -->
     <string name="ARGENTINA">AR</string>
@@ -76,7 +77,7 @@
     <!-- Snooth api -->
     <string name="base_url">http://api.snooth.com/</string>
     <string name="wine_store_locations">Wine Store locations</string>
-    <string name="wine_api_key">Your key here</string>
+    <string name="wine_api_key">Your api key here</string>
 
     <!-- Red Varietal wines -->
     <string-array name="red_varietal">
@@ -98,7 +99,7 @@
         <item>Chardonnay</item>
         <item>Sauvignon Blanc</item>
         <item>Pinot Grigio</item>
-        <item>Reisling</item>
+        <item>Riesling</item>
         <item>Gewurztraminer</item>
         <item>Champagne</item>
         <item>Pinot Gris</item>
@@ -110,8 +111,8 @@
     <string name="liquor_store">liquor_store</string>
 
     <!-- Google API keys -->
-    <string name="google_places_key">Your key here</string>
-    <string name="google_maps_key">Your key here</string>
+    <string name="google_places_key">Your api key here</string>
+    <string name="google_maps_key">Your api key here</string>
     <string name="title_activity_maps">Map</string>
     <string name="driving_directions">Driving directions</string>
     <string name="walking_directions">Walking directions</string>
